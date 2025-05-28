@@ -3,9 +3,13 @@ import { useTodo } from "./TodoContext";
 import { useEffect, useState, useRef } from "react";
 
 function TodoDetail() {
+  debugger;
   const { id } = useParams();
   console.log(id);
   const { todoList, setTodoList } = useTodo();
+  if (!todoList.length) {
+    return <div className="text-gray-400 text-center mt-10">Loading...</div>;
+  }
   const todo = todoList.find((item) => {
     return item.id == id;
   });
@@ -16,10 +20,13 @@ function TodoDetail() {
   }, [todo]);
 
   const handleChange = (e) => {
+    debugger;
     console.log(e.target.value);
     setText(e.target.value);
-    const newList = [...todoList];
-    newList[id] = { ...newList[id], text: e.target.value };
+    let newList = [...todoList];
+    newList = newList.map((item) =>
+      item.id == id ? { ...item, text: e.target.value } : item
+    );
     setTodoList(newList);
   };
 
