@@ -8,31 +8,34 @@ import { TodoProvider } from "./TodoContext";
 
 function App() {
   return (
-    <TodoProvider>
-      <Router>
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow rounded">
-          <nav className="flex gap-4 mb-4">
-            <Link to="/" className="text-blue-600 hover:underline">
-              Home
-            </Link>
-            <Link to="/about" className="text-blue-600 hover:underline">
-              About
-            </Link>
-            <Link to="/todoList" className="text-blue-600 hover:underline">
-              Todo
-            </Link>
-          </nav>
+    <>
+      <div className="text-red-500 text-xl font-bold">Tailwind 生效了吗？</div>
+      <TodoProvider>
+        <Router>
+          <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow rounded">
+            <nav className="flex gap-4 mb-4">
+              <Link to="/" className="text-blue-600 hover:underline">
+                Home
+              </Link>
+              <Link to="/about" className="text-blue-600 hover:underline">
+                About
+              </Link>
+              <Link to="/todoList" className="text-blue-600 hover:underline">
+                Todo
+              </Link>
+            </nav>
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/todoList" element={<TodoList />} />
-            <Route path="/todoDetail/:id" element={<TodoDetail />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </Router>
-    </TodoProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/todoList" element={<TodoList />} />
+              <Route path="/todoDetail/:id" element={<TodoDetail />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </Router>
+      </TodoProvider>
+    </>
   );
 }
 
