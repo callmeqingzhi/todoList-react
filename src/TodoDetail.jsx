@@ -3,7 +3,6 @@ import { useTodo } from "./TodoContext";
 import { useEffect, useState, useRef } from "react";
 
 function TodoDetail() {
-  debugger;
   const { id } = useParams();
   console.log(id);
   const { todoList, setTodoList } = useTodo();

@@ -17,13 +17,15 @@ function TodoList() {
   };
 
   const handleDel = (delIndex) => {
-    const newList = todoList.filter((_, index) => index != delIndex);
+    const newList = todoList.filter((item) => item.id != delIndex);
     setTodoList(newList);
   };
 
   const handleToggle = (index) => {
-    const newList = [...todoList];
-    newList[index].done = !newList[index].done;
+    let newList = [...todoList];
+    newList = newList.map((item) => {
+      return item.id == index ? { ...item, done: !item.done } : item;
+    });
     setTodoList(newList);
   };
   const enter = (e) => {
