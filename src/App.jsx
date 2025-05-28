@@ -9,7 +9,6 @@ import { TodoProvider } from "./TodoContext";
 function App() {
   return (
     <>
-      <div className="text-red-500 text-xl font-bold">Tailwind 生效了吗？</div>
       <TodoProvider>
         <Router>
           <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow rounded">
